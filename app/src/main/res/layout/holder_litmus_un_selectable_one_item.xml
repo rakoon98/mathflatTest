@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="number"
+            type="Integer" />
+
+        <variable
+            name="item"
+            type="com.example.mathflat.model.data.PieceDataOne" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff">
+
+        <!--            android:visibility="@{item.resultCheckCorrect, default = invisible}"-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/answerResultCorrectBox"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:background="#DEF3FF"
+            android:layout_height="80dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/numberProblemCorrect"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:text="@{ @string/problem_numner(number) }"
+                app:layout_constraintEnd_toStartOf="@id/guideCorrect"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1번" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideCorrect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.2" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                app:layout_constraintStart_toEndOf="@id/guideCorrect"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="@{@string/just_convert(item.answer)}"
+                android:textSize="12sp"
+                tools:text="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/correctCheckIv"
+                tools:srcCompat="@drawable/ic_check_black_24dp"
+                app:layout_constraintEnd_toStartOf="@id/correctIv"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/correctIv"
+                tools:srcCompat="@drawable/ic_correct_black_24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--        android:visibility="@{item.resultCheckInCorrect, default = invisible}"-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/answerResultInCorrectBox"
+            tools:visibility="invisible"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:background="#FFEBEE"
+            android:layout_height="80dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/numberProblemInCorrect"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:text="@{ @string/problem_numner(number) }"
+                app:layout_constraintEnd_toStartOf="@id/guideInCorrect"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1번" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideInCorrect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.2" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                app:layout_constraintStart_toEndOf="@id/guideInCorrect"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="@{@string/just_convert(item.answer)}"
+                android:textSize="12sp"
+                tools:text="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/incorrectCheckIv"
+                app:srcCompat="@drawable/ic_check_black_24dp"
+                app:layout_constraintEnd_toStartOf="@id/incorrectIv"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/incorrectIv"
+                app:srcCompat="@drawable/ic_close_black_24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--        android:visibility="@{item.resultCheckProblem, default = visible}"-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            tools:visibility="invisible"
+            android:id="@+id/answerBox"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/numberProblem"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:text="@{ @string/problem_numner(number) }"
+                app:layout_constraintEnd_toStartOf="@id/guide"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1번" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.2" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@drawable/item_border"
+                android:gravity="center|left"
+                android:inputType="number"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingStart="4dp"
+                android:id="@+id/answerEt"
+                app:layout_constraintBottom_toBottomOf="@id/numberProblem"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guide"
+                app:layout_constraintTop_toTopOf="@id/numberProblem" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginTop="80dp"
+            android:layout_height="0.2dp"
+            android:alpha="0.5"
+            android:id="@+id/div"
+            android:background="#808080"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/problemImg"
+            probImg="@{item.problemUrl}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:padding="32dp"
+            android:visibility="@{item.isShow ? View.VISIBLE : View.GONE }"
+            app:layout_constraintTop_toBottomOf="@id/div"
+            tools:srcCompat="@drawable/iv_heart_un_favorite" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#808080"
+            android:visibility="@{item.isShow ? View.VISIBLE : View.GONE }"
+            app:layout_constraintTop_toBottomOf="@id/problemImg" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

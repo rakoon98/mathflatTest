@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MathFlat</string>
+
+    <string name="count_problem">%s문제</string>
+    <string name="problem_numner">%s번</string>
+    <string name="just_convert">%s</string>
+</resources>
